@@ -23,12 +23,32 @@ const Hero = () => {
         <div
             data-aos="fade-up"
             data-aos-delay="400"
-            className="mt-5 px-2 text-center sm:text-4xl font-medium"
+            className="mt-5 px-2 font-medium text-center sm:text-left"
             >
-            <h2 className="text-sm sm:text-4xl">I'm Sulakshani Dissanayake,</h2>
-            <h2 className="text-sm sm:text-3xl inline-flex whitespace-nowrap">
-                 A Passionate{" "}
-                <span className="text-cyan-200 font-bold">
+            {/* Line 1: Hello, I'm Sulakshani */}
+            <h2 className="text-sm sm:text-4xl">
+                Hello, I'm{" "}
+                <span
+                className="text-cyan-200 font-bold inline-block align-middle min-w-[130px]"
+                >
+                <Typewriter
+                    options={{
+                    strings: ["Sulakshani"],
+                    autoStart: true,
+                    loop: true,
+                    delay: 75,
+                    deleteSpeed: 50,
+                    }}
+                />
+                </span>
+            </h2>
+
+            {/* Line 2: A Passionate IT undergraduate */}
+            <h2 className="text-sm sm:text-3xl font-normal mt-2">
+                A Passionate{" "}
+                <span
+                className="text-cyan-200 font-bold inline-block align-middle min-w-[200px]"
+                >
                 <Typewriter
                     options={{
                     strings: ["IT undergraduate"],
@@ -36,7 +56,6 @@ const Hero = () => {
                     loop: true,
                     delay: 75,
                     deleteSpeed: 50,
-                    wrapperClassName: "pl-2",
                     }}
                 />
                 </span>

@@ -12,6 +12,7 @@ import {
   SiHtml5,
   SiCss3,
   SiPhp,
+    SiGithub,
 } from "react-icons/si";
 
 import Tilt from "react-parallax-tilt";
@@ -73,9 +74,8 @@ const skills = [
     
   },
   {
-    name: "TypeScript",
-    icon: <SiTypescript />,
-    
+    name: "GitHub",
+    icon: <SiGithub />,
   },
 ];
 

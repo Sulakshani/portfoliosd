@@ -12,45 +12,36 @@ const Hero = () => {
 
       <div className="relative z-10 flex flex-col items-center">
         <Image
-          src="/images/s1.jpg"
+          src="/images/s12.png"
           alt="heroimage"
           width={150}
           height={150}
           className="rounded-full border-8 border-[#0c0c48aa]"
           data-aos="fade-up"
         />
-        <h1
-          data-aos="fade-up"
-          data-aos-delay="200"
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl mt-6 text-center font-bold tracking-wide"
-        >
-          Creating web products, <br />
-          brands,
-          <span className="text-cyan-200"> and experiences.</span>
-        </h1>
-        <h2
-          data-aos="fade-up"
-          data-aos-delay="400"
-          className="mt-5 text-sm px-2 text-center sm:text-2xl font-medium flex items-center"
-        >
-          Hi! I&apos;m Sulakshani - A Passionate
-          <span className="text-cyan-200 font-bold">
-            <Typewriter
-              options={{
-                strings: [
-                  " Full Stack Developer",
-                  " Backend Developer",
-                  " Frontend Developer",
-                ],
-                autoStart: true,
-                loop: true,
-                delay: 75,
-                deleteSpeed: 50,
-                wrapperClassName: "pl-2",
-              }}
-            />
-          </span>
-        </h2>
+       
+        <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="mt-5 px-2 text-center sm:text-4xl font-medium"
+            >
+            <h2 className="text-sm sm:text-4xl">I'm Sulakshani Dissanayake,</h2>
+            <h2 className="text-sm sm:text-3xl inline-flex whitespace-nowrap">
+                 A Passionate{" "}
+                <span className="text-cyan-200 font-bold">
+                <Typewriter
+                    options={{
+                    strings: ["IT undergraduate"],
+                    autoStart: true,
+                    loop: true,
+                    delay: 75,
+                    deleteSpeed: 50,
+                    wrapperClassName: "pl-2",
+                    }}
+                />
+                </span>
+            </h2>
+            </div>
         <button
           data-aos="fade-up"
           data-aos-delay="600"

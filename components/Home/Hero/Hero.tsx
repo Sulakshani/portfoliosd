@@ -27,24 +27,11 @@ const Hero = () => {
             >
             {/* Line 1: Hello, I'm Sulakshani */}
             <h2 className="text-sm sm:text-4xl">
-                Hello, I'm{" "}
-                <span
-                className="text-cyan-200 font-bold inline-block align-middle min-w-[130px]"
-                >
-                <Typewriter
-                    options={{
-                    strings: ["Sulakshani"],
-                    autoStart: true,
-                    loop: true,
-                    delay: 75,
-                    deleteSpeed: 50,
-                    }}
-                />
-                </span>
+                Hello, I'm Sulakshani
             </h2>
 
             {/* Line 2: A Passionate IT undergraduate */}
-            <h2 className="text-sm sm:text-3xl font-normal mt-2">
+            <h2 className="text-sm sm:text-3xl  mt-2">
                 A Passionate{" "}
                 <span
                 className="text-cyan-200 font-bold inline-block align-middle min-w-[200px]"

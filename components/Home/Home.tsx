@@ -11,6 +11,7 @@ import Contact from "./Contact/Contact";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import Experiences from "./experience/Experiences";
+import Certificates from "./Certi/Certificates";
 
 const Home = () => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const Home = () => {
       <Projects />
       <Skills />
       <Experiences />
+      <Certificates />
       <ClientReview />
       <Blog />
       <Contact />

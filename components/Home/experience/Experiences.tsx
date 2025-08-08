@@ -1,7 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // More interactive chevrons
 
 const Experiences = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const experiences = [
     {
       role: "Software Development Intern",
@@ -11,7 +14,7 @@ const Experiences = () => {
         "Worked on developing web applications using React and .NET Core, improving UI responsiveness and backend performance.",
       image: "/images/exp1.jpg",
       skills: ["React", ".NET Core", "SQL", "Git"],
-      link: "#", // Link to certificate or project page
+      link: "#",
     },
     {
       role: "UI/UX Designer",
@@ -35,62 +38,85 @@ const Experiences = () => {
     },
   ];
 
+  const scroll = (direction: string) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -350 : 350,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="pt-16 pb-16">
-      <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white">
+    <div className="pt-16 pb-16 relative">
+      <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white mb-8">
         My <span className="text-cyan-300">Experiences</span>
       </h1>
 
-      <div className="w-[60%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
-        {experiences.map((exp, index) => (
-          <div
-            key={index}
-            className="bg-[#0f172a] rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-cyan-500/20 transition"
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-          >
-            <Image
-              src={exp.image}
-              alt={exp.role}
-              width={600}
-              height={450}
-              className="rounded-lg"
-            />
-            <div className="mt-4 flex items-center justify-between">
-              <h1 className="text-xl sm:text-2xl font-semibold text-cyan-300">
-                {exp.role}
-              </h1>
-              <span className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full">
-                {exp.type}
-              </span>
-            </div>
-            <p className="text-white/70 text-sm">{exp.company}</p>
-            <p className="pt-3 text-white/80">{exp.description}</p>
+      {/* Left scroll button */}
+      <button
+        onClick={() => scroll("left")}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-800 p-3 rounded-full text-white hover:bg-gray-700 z-10 animate-pulse"
+      >
+        <FaChevronLeft size={20} />
+      </button>
 
-            <div className="flex flex-wrap gap-2 mt-4">
-              {exp.skills.map((skill, i) => (
-                <span
-                  key={i}
-                  className="bg-cyan-900 text-cyan-200 text-xs px-3 py-1 rounded-full"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+      {/* Right scroll button */}
+      <button
+        onClick={() => scroll("right")}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-800 p-3 rounded-full text-white hover:bg-gray-700 z-10 animate-pulse"
+      >
+        <FaChevronRight size={20} />
+      </button>
 
-            {exp.link && (
-              <div className="flex justify-start mt-5">
-                <a
-                  href={exp.link}
-                  className="bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-2 rounded-full text-white font-medium hover:opacity-90"
-                >
-                  View More
-                </a>
-              </div>
-            )}
+      {/* Horizontal Scroll */}
+    <div
+      ref={scrollRef}
+      className="flex overflow-x-auto space-x-6 px-12 scrollbar-hide items-center justify-center"
+    >
+      {experiences.map((exp, index) => (
+        <div
+        key={index}
+        className="bg-[#0f172a] min-w-[350px] max-w-[350px] rounded-xl p-4 shadow-lg border border-white/10 hover:shadow-cyan-500/20 transition flex-shrink-0"
+        >
+        <Image
+          src={exp.image}
+          alt={exp.role}
+          width={350}
+          height={160}
+          className="rounded-lg object-cover"
+        />
+        <div className="mt-3">
+          <h1 className="text-lg font-semibold text-cyan-300">
+            {exp.role}
+          </h1>
+          <p className="text-white/70 text-sm">{exp.company}</p>
+          <span className="bg-gray-700 text-white text-xs px-2 py-0.5 rounded-full mt-1 inline-block">
+            {exp.type}
+          </span>
+          <p className="pt-2 text-white/80 text-sm">{exp.description}</p>
+          <div className="flex flex-wrap gap-1 mt-3">
+            {exp.skills.map((skill, i) => (
+            <span
+              key={i}
+              className="bg-cyan-900 text-cyan-200 text-[10px] px-2 py-0.5 rounded-full"
+            >
+              {skill}
+            </span>
+            ))}
           </div>
-        ))}
-      </div>
+          {exp.link && (
+            <a
+            href={exp.link}
+            className="mt-3 inline-block bg-gradient-to-r from-cyan-400 to-blue-500 px-3 py-1 rounded-full text-white text-xs font-medium hover:opacity-90"
+            >
+            View More
+            </a>
+          )}
+        </div>
+        </div>
+      ))}
+    </div>
     </div>
   );
 };

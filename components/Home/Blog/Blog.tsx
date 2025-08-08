@@ -15,30 +15,12 @@ const Blog = () => {
           data-aos-delay="0"
         >
           <BlogCard
-            image="/images/b1.jpg"
-            title="Learn how to build an amazing portfolio website using next js"
+            image="/images/2405a65ff1b58436b15d81a30c23561b1bf383d3-10450x5350.webp"
+            title="Static vs Server-Side Rendering in Next.js"
           />
         </div>
-        <div
-          data-aos="fade-right"
-          data-aos-anchor-placement="top-center"
-          data-aos-delay="100"
-        >
-          <BlogCard
-            image="/images/b2.jpg"
-            title="Learn how to build an amazing Blog website using next js"
-          />
-        </div>
-        <div
-          data-aos="fade-right"
-          data-aos-anchor-placement="top-center"
-          data-aos-delay="200"
-        >
-          <BlogCard
-            image="/images/b3.jpg"
-            title="Learn how to build an amazing Social Media website using next js"
-          />
-        </div>
+       
+          
       </div>
     </div>
   );

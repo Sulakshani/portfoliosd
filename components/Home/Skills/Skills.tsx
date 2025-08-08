@@ -13,6 +13,13 @@ import {
   SiCss3,
   SiPhp,
     SiGithub,
+    SiThreedotjs,
+    SiC,
+    SiMysql,
+    SiGit,
+    SiPostman,
+    SiMongodb
+    
 } from "react-icons/si";
 
 import Tilt from "react-parallax-tilt";
@@ -77,6 +84,31 @@ const skills = [
     name: "GitHub",
     icon: <SiGithub />,
   },
+  {
+    name: "Threejs",
+    icon: <SiThreedotjs />,
+  },
+  {
+  // Java icon removed due to missing export in react-icons/si
+    name: "MySQL",
+    icon: <SiMysql />,
+  },
+  {
+    name: "C",
+    icon: <SiC />,
+  },
+  {
+    name: "Git",
+    icon: <SiGit />,
+  },
+  {
+    name: "Postman",
+    icon: <SiPostman />,
+  },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb />,
+  },
 ];
 
 const Skills = () => {
@@ -87,19 +119,38 @@ const Skills = () => {
       </h1>
       <div className="flex flex-wrap justify-center gap-6 mt-16">
         {skills.map((skil, i) => {
-          return (
-            <Tilt key={skil.name} scale={1.5} transitionSpeed={400}>
-              <div
+            // Start a new row every 8 skills
+            if (i % 8 === 0) {
+            return (
+              <React.Fragment key={skil.name}>
+              {i !== 0 && <div className="w-full" />}
+              <Tilt scale={1.5} transitionSpeed={400}>
+                <div
                 data-aos="flip-right"
                 data-aos-anchor-placement="top-center"
                 data-aos-delay={i * 100}
                 className="bg-[#14134145] text-center w-30 h-38 rounded-3xl flex flex-col items-center justify-center shadow-lg transition hover:scale-105"
-              >
+                >
                 <div className="text-5xl mb-4 text-gray-300">{skil.icon}</div>
                 <p className="text-purple-400 mt-1">{skil.name}</p>
+                </div>
+              </Tilt>
+              </React.Fragment>
+            );
+            }
+            return (
+            <Tilt key={skil.name} scale={1.5} transitionSpeed={400}>
+              <div
+              data-aos="flip-right"
+              data-aos-anchor-placement="top-center"
+              data-aos-delay={i * 100}
+              className="bg-[#14134145] text-center w-30 h-38 rounded-3xl flex flex-col items-center justify-center shadow-lg transition hover:scale-105"
+              >
+              <div className="text-5xl mb-4 text-gray-300">{skil.icon}</div>
+              <p className="text-purple-400 mt-1">{skil.name}</p>
               </div>
             </Tilt>
-          );
+            );
         })}
       </div>
     </div>

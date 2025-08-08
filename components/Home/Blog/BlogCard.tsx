@@ -24,13 +24,13 @@ const BlogCard = ({ image, title }: Props) => {
       </h1>
       <div className="mt-4 flex gap-2 items-center">
         <p className="px-4 py-1.5 bg-blue-950 text-white text-sm sm:text-base font-bold rounded-full">
-          React
+          Next js
         </p>
         <p className="px-4 py-1.5 bg-blue-950 text-white text-sm sm:text-base font-bold rounded-full">
-          Next JS
+          SSG
         </p>
         <p className="px-4 py-1.5 bg-blue-950 text-white text-sm sm:text-base font-bold rounded-full">
-          Tailwind
+          SSR
         </p>
       </div>
     </div>

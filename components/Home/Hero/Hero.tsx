@@ -14,8 +14,8 @@ const Hero = () => {
         <Image
           src="/images/s12.png"
           alt="heroimage"
-          width={150}
-          height={150}
+          width={200}
+          height={200}
           className="rounded-full border-8 border-[#0c0c48aa]"
           data-aos="fade-up"
         />
@@ -26,19 +26,19 @@ const Hero = () => {
             className="mt-5 px-2 font-medium text-center sm:text-left"
             >
             {/* Line 1: Hello, I'm Sulakshani */}
-            <h2 className="text-sm sm:text-4xl">
+            <h2 className="text-sm sm:text-5xl">
                 Hello, I'm Sulakshani
             </h2>
 
             {/* Line 2: A Passionate IT undergraduate */}
-            <h2 className="text-sm sm:text-3xl  mt-2">
-                A Passionate{" "}
+            <h2 className="text-sm sm:text-5xl  mt-2">
+                
                 <span
                 className="text-cyan-200 font-bold inline-block align-middle min-w-[200px]"
                 >
                 <Typewriter
                     options={{
-                    strings: ["IT undergraduate"],
+                    strings: ["Third Year undergraduate","Full Stack Developer"],
                     autoStart: true,
                     loop: true,
                     delay: 75,

@@ -10,6 +10,7 @@ import Blog from "./Blog/Blog";
 import Contact from "./Contact/Contact";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import Experiences from "./experience/Experiences";
 
 const Home = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const Home = () => {
       <Resume />
       <Projects />
       <Skills />
+      <Experiences />
       <ClientReview />
       <Blog />
       <Contact />

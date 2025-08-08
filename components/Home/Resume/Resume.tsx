@@ -22,11 +22,11 @@ const Resume = () => {
     },
     {
       
-      role: "Certificate in Digital Marketing",
-      date: "Jan 2016 - Dec 2019",
-      school: "Digital Institute",
-      results: "Distinction",
-      description: "Gained expertise in digital marketing strategies, social media management, and online brand development with top performance."
+      role: "Bachelor (Hons) in Information Technology",
+      date: "2023 - 2027",
+      school: "University of Moratuwa",
+      results: "CGPA - 3.7/4.0 (2025 May)",
+      description: "Third-year student in Faculty of Information Technology. Working on both academic and extra activities projects to improve skills and knowledge."
     }
   ];
 

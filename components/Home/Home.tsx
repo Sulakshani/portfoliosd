@@ -30,13 +30,13 @@ const Home = () => {
   return (
     <div className="overflow-hidden ">
       <Hero />
-      <Services />
+     
       <Resume />
       <Projects />
       <Skills />
       <Experiences />
       <Certificates />
-      <ClientReview />
+      
       <Blog />
       <Contact />
     </div>

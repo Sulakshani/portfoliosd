@@ -7,13 +7,13 @@ const Experiences = () => {
 
   const experiences = [
     {
-      role: "Software Development Intern",
-      company: "ABC Tech Solutions",
-      type: "Internship",
+      role: "Committee Member",
+      location: "IEEE RAS Student Branch Chapter",
+      type: "",
       description:
         "Worked on developing web applications using React and .NET Core, improving UI responsiveness and backend performance.",
       image: "/images/exp1.jpg",
-      skills: ["React", ".NET Core", "SQL", "Git"],
+      
       link: "#",
     },
     {
@@ -96,7 +96,7 @@ const Experiences = () => {
           </span>
           <p className="pt-2 text-white/80 text-sm">{exp.description}</p>
           <div className="flex flex-wrap gap-1 mt-3">
-            {exp.skills.map((skill, i) => (
+            {exp.skills?.map((skill, i) => (
             <span
               key={i}
               className="bg-cyan-900 text-cyan-200 text-[10px] px-2 py-0.5 rounded-full"

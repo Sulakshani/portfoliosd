@@ -5,42 +5,86 @@ import { FaGithub } from "react-icons/fa";
 const Projects = () => {
   const projects = [
     {
-      title: "My Portfolio Site",
+      title: "Pinnacle Website",
+      type: "Web Project",
+      
+      description: [
+        "Built an AI-powered e-commerce platform offering personalized recommendations, smart search, order tracking, and an advanced admin dashboard.",
+        
+      ],
+      image: "/images/p1.jpg",
+      tech: [
+        "Next.js",
+        "MongoDB",
+        "Gemini API",
+        "Stripe",
+        "JWT",
+        "Cloudinary",
+        "Figma",
+        "GitHub"
+      ],
+      link: "#",
+      github: "#",
+      highlight: true,
+    },
+    
+    {
+      title: "Careerly – Career Connecting Platform",
       type: "Web Project",
       description:
-        "My first portfolio website showcasing my skills, projects, and experiences.",
-      image: "/images/p1.jpg",
-      tech: ["Next.js", "Asp.Net", "Tailwind CSS", "+1 more"],
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Modern Finance Dashboard UI",
-      type: "UI/UX Project",
-      description:
-        "A modern and interactive finance dashboard with sleek UI and smooth user flow.",
-      image: "/images/p2.jpg",
-      tech: ["React", "Tailwind CSS", "Chart.js"],
-      link: "#",
-      github: "#",
-    },
-    {
-      title: "Brand Identity for Startups",
-      type: "Branding Project",
-      description:
-        "Creative and unique branding solutions to help startups build strong identity.",
+        "Built a platform connecting students and companies for internships and hiring, with secure authentication and company profile management.",
       image: "/images/p3.jpg",
-      tech: ["Figma", "Illustrator", "Photoshop"],
+      tech: ["Next.js", "Tailwind CSS", "JWT","GitHub"],
       link: "#",
       github: "#",
     },
     {
-      title: "SaaS Dashboard Development",
+      title: "My Portfolio",
+      type: "Web Project",
+      description:
+        "My first portfolio website showcasing my skills, projects,certifications, blogs and experiences.",
+      image: "/images/p2.jpg",
+      tech: ["Next.js", "Tailwind CSS", "Three.js","GitHub"],
+      link: "#",
+      github: "#",
+    },
+    {
+      title: "MedLink Platform",
       type: "Web App",
       description:
-        "SaaS dashboard built with modern technologies to manage and analyze data.",
+        "Built a secure web app for sharing patient medical details via QR code with role-based authentication and SQL Server integration.",
       image: "/images/p4.jpg",
-      tech: ["Next.js", "Node.js", "Tailwind CSS"],
+      tech: ["Next.js", "ASP.NET", "Tailwind CSS","GitHub","Firebase"],
+      link: "#",
+      github: "#",
+    },
+    {
+      title: "SevaLanka project",
+      type: "Web App",
+      description:
+        "Built a secure web app for sharing patient medical details via QR code with role-based authentication and SQL Server integration.",
+      image: "/images/p4.jpg",
+      tech: ["Next.js", "ASP.NET", "Tailwind CSS","GitHub","Firebase"],
+      link: "#",
+      github: "#",
+    },
+    {
+      title: "Baby Driver project",
+      type: "Web App",
+      description:
+        "Built a mobile-controlled car game for kids to collect RFID-tagged items and place them in correct slots, improving learning and problem-solving skills.",
+      image: "/images/p4.jpg",
+      tech: ["React", "Node.js", "MIT App Inventor","GitHub","GitHub"],
+      link: "#",
+      github: "#",
+    },
+    {
+      title: "FinFit Design",
+      type: "UI/UX Design",
+      description:
+        "FinFit is an easy-to-use platform that helps Gen Z manage expenses, budgets, savings, and investments through interactive dashboards and real-time alerts, making money management simple and rewarding.",
+      image: "/images/p4.jpg",
+      tech: ["Figma"],
       link: "#",
       github: "#",
     },
@@ -57,27 +101,47 @@ const Projects = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-[#0f172a] rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-cyan-500/20 transition"
+            className={`relative bg-[#0f172a] rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-cyan-500/20 transition group overflow-hidden ${project.highlight ? 'ring-2 ring-cyan-400 scale-[1.03]' : ''}`}
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={600}
-              height={450}
-              className="rounded-lg"
-            />
-            <div className="mt-4 flex items-center justify-between">
+            {/* Project Image with overlay for highlight */}
+            <div className="relative">
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={450}
+                className="rounded-lg group-hover:scale-105 transition-transform duration-500"
+              />
+              {project.highlight && (
+                <div className="absolute top-4 left-4 bg-cyan-400 text-[#0f172a] text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse z-10">
+                  Featured
+                </div>
+              )}
+            </div>
+            {/* Title and Role/Company */}
+            <div className="mt-4 flex flex-col gap-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-cyan-300">
                 {project.title}
               </h1>
-              <span className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full">
-                {project.type}
-              </span>
+              {project.type && (
+                <span className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full inline-block mt-1">
+                  {project.type}
+                </span>
+              )}
             </div>
-            <p className="pt-3 text-white/80">{project.description}</p>
-
+            {/* Description (multi-line for Pinnacle) */}
+            {Array.isArray(project.description) ? (
+              <ul className="pt-3 text-white/80 space-y-2 list-disc list-inside">
+                {project.description.map((desc, i) => (
+                  <li key={i}>{desc}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="pt-3 text-white/80">{project.description}</p>
+            )}
+            {/* Tech Stack */}
             <div className="flex flex-wrap gap-2 mt-4">
               {project.tech.map((tech, i) => (
                 <span
@@ -88,7 +152,7 @@ const Projects = () => {
                 </span>
               ))}
             </div>
-
+            {/* Actions */}
             <div className="flex justify-between items-center mt-5">
               <a
                 href={project.link}

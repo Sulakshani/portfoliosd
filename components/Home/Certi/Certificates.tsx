@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; 
 
 type Certificate = {
   title: string;
@@ -14,6 +15,15 @@ type Certificate = {
 export default function Certificates() {
   const [page, setPage] = useState(0);
   const certificates: Certificate[] = [
+    {
+      title: "CodeRally 6.0 - Champion",
+      issuer: "IEEE Computer Society Student Branch Chapter of IIT",
+      date: "Sep 2025",
+      image: "/images/webdesigner.jpeg",
+      skills: ["Problem Solving", "Team Work"],
+      description: "Champion of the Final 24-Hour Hackathon of Corally 6.0, organized by the IEEE Computer Society Student Branch Chapter of IIT",
+      link: "https://www.hackerrank.com/certificates/java-basic"
+    },
     {
       title: "Web Design for Beginners",
       issuer: "Faculty of Information Technology, University of Moratuwa",
@@ -105,12 +115,14 @@ export default function Certificates() {
               <div className="flex items-center gap-2">
                 {/* Left Button */}
                 <button
-                  onClick={() => goToPage(page - 1)}
-                  className="p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300 transition disabled:opacity-50"
-                  disabled={page === 0}
-                >
-                  <ChevronLeft size={24} />
-                </button>
+                          onClick={() => goToPage(page - 1)}
+                          className="absolute bg-gray-200 rounded-full shadow hover:bg-gray-300 transition disabled:opacity-50 flex items-center justify-center w-10 h-10 z-10 px-3"
+                          style={{ left: '6rem', top: '50%', transform: 'translateY(-50%)' }}
+                          disabled={page === 0}
+                          aria-label="Previous experiences"
+                        >
+                          <FaChevronLeft size={24} className="text-gray-700" />
+                        </button>
                 <div
                   className="flex space-x-6 px-4"
                   style={{ width: '1100px', maxWidth: '100%' }}
@@ -160,12 +172,14 @@ export default function Certificates() {
                 </div>
                 {/* Right Button */}
                 <button
-                  onClick={() => goToPage(page + 1)}
-                  className="p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300 transition disabled:opacity-50"
-                  disabled={page === totalPages - 1}
-                >
-                  <ChevronRight size={24} />
-                </button>
+                          onClick={() => goToPage(page + 1)}
+                          className="absolute bg-gray-200 rounded-full shadow hover:bg-gray-300 transition disabled:opacity-50 flex items-center justify-center w-10 h-10 z-10 px-3"
+                          style={{ right: '6rem', top: '50%', transform: 'translateY(-50%)' }}
+                          disabled={page === totalPages - 1}
+                          aria-label="Next experiences"
+                        >
+                          <FaChevronRight size={24} className="text-gray-700" />
+                        </button>
               </div>
               {/* Pagination Dots */}
               <div className="flex justify-center mt-2 gap-2">

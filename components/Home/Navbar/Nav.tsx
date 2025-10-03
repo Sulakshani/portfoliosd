@@ -65,7 +65,7 @@ const Nav = ({ openNav }: Props) => {
               link.download = 'Sulakshani Dissanayake_SE Intern.pdf';
               link.click();
             }}
-            className="px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2"
+            className="px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2"
           >
             <BiDownload className="w-5 h-5" />
             <span>Download CV</span>

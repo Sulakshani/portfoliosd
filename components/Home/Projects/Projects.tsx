@@ -1,8 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 
 const Projects = () => {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
   const projects = [
     {
       title: "Pinnacle Website",
@@ -90,6 +92,9 @@ const Projects = () => {
     },
   ];
 
+  // Show only first 4 projects by default, or all if showAllProjects is true
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 4);
+
   return (
     <div className="pt-16 pb-16">
       <h1 className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-white">
@@ -98,7 +103,7 @@ const Projects = () => {
       </h1>
 
       <div className="w-[60%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
-        {projects.map((project, index) => (
+        {displayedProjects.map((project, index) => (
           <div
             key={index}
             className={`relative bg-[#0f172a] rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-cyan-500/20 transition group overflow-hidden ${project.highlight ? 'ring-2 ring-cyan-400 scale-[1.03]' : ''}`}
@@ -170,6 +175,34 @@ const Projects = () => {
           </div>
         ))}
       </div>
+
+      {/* View More Projects Button */}
+      {!showAllProjects && projects.length > 4 && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => setShowAllProjects(true)}
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 px-8 py-3 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            View More Projects
+          </button>
+        </div>
+      )}
+
+      {/* View Less Projects Button */}
+      {showAllProjects && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => setShowAllProjects(false)}
+            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 px-8 py-3 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            View Less Projects
+          </button>
+        </div>
+      )}
     </div>
   );
 };

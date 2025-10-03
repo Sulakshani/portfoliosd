@@ -29,16 +29,28 @@ const Home = () => {
   }, []);
   return (
     <div className="overflow-hidden ">
-      <Hero />
-     
-      <Resume />
-      <Projects />
-      <Skills />
-      <Experiences />
-      <Certificates />
-      
-      <Blog />
-      <Contact />
+      <div id="home">
+        <Hero />
+      </div>
+      {/* Education Section */}
+      <div id="education">
+        <Resume />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="experiences">
+        <Experiences />
+      </div>
+      <div id="certificates">
+        <Certificates />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 };

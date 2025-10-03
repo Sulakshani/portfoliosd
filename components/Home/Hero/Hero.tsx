@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
+import { FaLinkedin, FaGithub, FaHackerrank, FaMedium } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import ParticlesHero from "./ParticleBackground";
 //import RobotAnimation from "./RobotAnimation";
@@ -73,16 +74,32 @@ const Hero = () => {
           </button>
         </div>
         {/* Right: Photo */}
-        <div className="sm:w-1/2 flex justify-center items-center mt-8 sm:mt-0">
+        <div className="sm:w-1/2 flex justify-center items-center mt-8 sm:mt-0 relative">
           <Image
             src="/images/image.png" // Change to your actual photo path if needed
             alt="My Photo"
             width={320}
-            height={320}
+            height={350}
             className="rounded-full border-8 border-[#0c0c48aa] shadow-lg object-cover"
             data-aos="fade-left"
           />
         </div>
+      </div>
+      
+      {/* Fixed Social Media Icons */}
+      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 flex flex-col space-y-4">
+        <a href="https://www.linkedin.com/in/sulakshani-dissanayake" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+          <FaLinkedin className="text-white w-6 h-6" />
+        </a>
+        <a href="https://github.com/Sulakshani" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+          <FaGithub className="text-white w-6 h-6" />
+        </a>
+        <a href="https://www.hackerrank.com/profile/Sulakshani2002" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+          <FaHackerrank className="text-white w-6 h-6 " />
+        </a>
+        <a href="https://medium.com/@sulakshanidissanayake" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+          <FaMedium className="text-white w-6 h-6" />
+        </a>
       </div>
     </div>
   );

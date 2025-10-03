@@ -5,66 +5,67 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // More interact
 const Experiences = () => {
 
   const experiences = [
-  {
-    role: "Committee Member",
-    location: "University of Moratuwa",
-    type: "IEEE RAS Student Branch Chapter",
-    description:
-      "As part of the IEEE RAS Student Chapter, I worked on Careerly, a web-based platform designed to bridge the gap between students and companies by providing opportunities for hiring.",
-    image: "/images/exp1.jpg",
-    link: "#",
-    skills: [],
-  },
-  {
-    role: "Program Lead - Hackelite 2.0 ",
-    location: "University of Moratuwa",
-    type: "IEEE WIE Student Branch Affinity Group",
-    description:
-      "Served as a Program Lead for Radiance '25, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
-    image: "/images/exp2.jpg",
-    link: "#",
-    skills: [],
-  },
-  {
-    role: "Finance Committee Member - MoraXtreme 9.0 ",
-    location: "University of Moratuwa",
-    type: "IEEE Student Branch Chapter",
-    description:
-      "Served as a member of Finance Committee Member for MoraXtreme 9.0, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
-    image: "/images/exp2.jpg",
-    link: "#",
-    skills: [],
-  },
-  {
-    role: "Finance Committee Member - Radiance '24 ",
-    location: "University of Moratuwa",
-    type: "IEEE WIE Student Branch Affinity Group",
-    description:
-      "Served as a member of Finance Committee for Radiance '25, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
-    image: "/images/exp2.jpg",
-    link: "#",
-    skills: [],
-  },
-  {
-    role: "Organizing Committee Member - FestX ",
-    location: "University of Moratuwa",
-    type: "IEEE WIE Student Branch Affinity Group",
-    description:
-      "Served as an organizing committee member for FestX, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
-    image: "/images/exp2.jpg",
-    link: "#",
-    skills: [],
-  },
-  {
-    role: "Program Committee Member - Enginuity 2.0",
-    location: "University of Moratuwa",
-    type: "IEEE WIE Student Branch Affinity Group",
-    description:
-      "Worked as a program committee member of Enginuity 2.0, organized by the IEEE WIE Student Branch Affinity Group, University of Moratuwa.",
-    image: "/images/exp3.jpg",
-    link: "#",
-    skills: [],
-  },
+    {
+      role: "Committee Member",
+      location: "University of Moratuwa",
+      type: "IEEE RAS Student Branch Chapter",
+      description:
+        "As part of the IEEE RAS Student Chapter, I worked on Careerly, a web-based platform designed to bridge the gap between students and companies by providing opportunities for hiring.",
+      image: "/images/exp1.png",
+      link: "#",
+      skills: [],
+      imageHalf: true, // custom flag to show half image
+    },
+    {
+      role: "Program Lead - Hackelite 2.0 ",
+      location: "University of Moratuwa",
+      type: "IEEE WIE Student Branch Affinity Group",
+      description:
+        "Served as a Program Lead for Radiance '25, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
+      image: "/images/wie2..png",
+      link: "#",
+      skills: [],
+    },
+    {
+      role: "Finance Committee Member - MoraXtreme 9.0 ",
+      location: "University of Moratuwa",
+      type: "IEEE Student Branch Chapter",
+      description:
+        "Served as a member of Finance Committee Member for MoraXtreme 9.0, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
+      image: "/images/exp3.png",
+      link: "#",
+      skills: [],
+    },
+    {
+      role: "Finance Committee Member - Radiance '24 ",
+      location: "University of Moratuwa",
+      type: "IEEE WIE Student Branch Affinity Group",
+      description:
+        "Served as a member of Finance Committee for Radiance '25, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
+      image: "/images/wie2..png",
+      link: "#",
+      skills: [],
+    },
+    {
+      role: "Organizing Committee Member - FestX ",
+      location: "University of Moratuwa",
+      type: "IEEE WIE Student Branch Affinity Group",
+      description:
+        "Served as an organizing committee member for FestX, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
+      image: "/images/wie2..png",
+      link: "#",
+      skills: [],
+    },
+    {
+      role: "Program Committee Member - Enginuity 2.0",
+      location: "University of Moratuwa",
+      type: "IEEE WIE Student Branch Affinity Group",
+      description:
+        "Worked as a program committee member of Enginuity 2.0, organized by the IEEE WIE Student Branch Affinity Group, University of Moratuwa.",
+      image: "/images/wie2..png",
+      link: "#",
+      skills: [],
+    },
   ];
 
   // Pagination state

@@ -33,7 +33,7 @@ const Nav = ({ openNav }: Props) => {
       <div className="flex items-center h-full justify-between w-[90%] mx-auto">
         {/* LOGO */}
         <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
             <img
               src="/images/slogo.png"
               alt="Logo"
@@ -58,7 +58,15 @@ const Nav = ({ openNav }: Props) => {
         {/* buttons */}
         <div className="flex items-center space-x-4">
           {/* CV button */}
-          <button className="px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2">
+          <button 
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/cv/Sulakshani Dissanayake_SE Intern.pdf'; // Replace with your actual CV file path
+              link.download = 'Sulakshani Dissanayake_SE Intern.pdf';
+              link.click();
+            }}
+            className="px-8 py-3.5 text-sm cursor-pointer rounded-lg bg-blue-800 hover:bg-blue-900 transition-all duration-300 text-white flex items-center space-x-2"
+          >
             <BiDownload className="w-5 h-5" />
             <span>Download CV</span>
           </button>

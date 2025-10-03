@@ -1,8 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaHackerrank, FaInstagram, FaLinkedin, FaMedium, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobile: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setStatus('');
+
+    try {
+      console.log('Submitting form with data:', formData);
+      
+      // Use the debug endpoint to see detailed error info
+      const response = await fetch('/api/send-email-debug', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          mobile: formData.mobile,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+      console.log('API Response:', data);
+
+      if (response.ok) {
+        setStatus('Message sent successfully! Check your email inbox.');
+        setFormData({ name: '', email: '', mobile: '', message: '' });
+      } else {
+        console.error('API Error:', data);
+        throw new Error(data.details || data.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('Failed to send message. Check console for details. Error: ' + error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <div className="pt-16 pb-16">
       <div className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -35,18 +90,18 @@ const Contact = () => {
           </div>
           {/* social icons */}
           <div className="flex items-center mt-8 space-x-3">
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-blue-800 transition-all duration-300">
-              <FaFacebookF className="text-white w-6 h-6" />
-            </div>
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-red-600 transition-all duration-300">
-              <FaYoutube className="text-white w-6 h-6" />
-            </div>
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-sky-400 transition-all duration-300">
-              <FaTwitter className="text-white w-6 h-6" />
-            </div>
-            <div className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-pink-500 transition-all duration-300">
-              <FaInstagram className="text-white w-6 h-6" />
-            </div>
+           <a href="https://www.linkedin.com/in/sulakshani-dissanayake" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+                     <FaLinkedin className="text-white w-6 h-6" />
+                   </a>
+                   <a href="https://github.com/Sulakshani" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+                     <FaGithub className="text-white w-6 h-6" />
+                   </a>
+                   <a href="https://www.hackerrank.com/profile/Sulakshani2002" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+                     <FaHackerrank className="text-white w-6 h-6 " />
+                   </a>
+                   <a href="https://medium.com/@sulakshanidissanayake" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
+                     <FaMedium className="text-white w-6 h-6" />
+                   </a>
           </div>
         </div>
         {/* form */}
@@ -56,28 +111,56 @@ const Contact = () => {
           data-aos-delay="0"
           className="md:p-10 p-5 bg-[#131332] rounded-lg"
         >
-          <input
-            type="text"
-            placeholder="Name"
-            className="px-4 py-3.5 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70"
-          />
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70"
-          />
-          <input
-            type="text"
-            placeholder="Mobile Number"
-            className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70"
-          />
-          <textarea
-            placeholder="Your Message"
-            className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70 h-[10rem]"
-          ></textarea>
-          <button className="mt-8 px-12 py-4 bg-blue-950 hover:bg-blue-900 transition-all duration-300 cursor-pointer text-white rounded-full">
-            Send Message
-          </button>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Name"
+              required
+              className="px-4 py-3.5 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70"
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address"
+              required
+              className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70"
+            />
+            <input
+              type="text"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+              placeholder="Mobile Number"
+              className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70"
+            />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              required
+              className="px-4 py-3.5 mt-6 bg-[#363659] text-white outline-none rounded-md w-full placeholder:text-white/70 h-[10rem]"
+            ></textarea>
+            
+            {status && (
+              <p className={`mt-4 text-center ${status.includes('success') ? 'text-green-400' : 'text-red-400'}`}>
+                {status}
+              </p>
+            )}
+            
+            <button 
+              type="submit"
+              disabled={isLoading}
+              className="mt-8 px-12 py-4 bg-blue-950 hover:bg-blue-900 transition-all duration-300 cursor-pointer text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isLoading ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
         </div>
       </div>
     </div>

@@ -130,7 +130,7 @@ const Hero = () => {
             alt="My Photo"
             width={320}
             height={320}
-            className="rounded-xl border-4 border-[#0c0c48aa] shadow-lg object-cover relative z-10 transition-all duration-500 group-hover:border-cyan-500/50 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-cyan-500/30 group-hover:brightness-110"
+            className="rounded-xl border-4 border-cyan-500/70 shadow-lg object-cover relative z-10 transition-all duration-500 group-hover:border-cyan-400 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-cyan-500/30 group-hover:brightness-110"
             data-aos="fade-left"
           />
         </div>

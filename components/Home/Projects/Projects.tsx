@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import { SiFigma } from "react-icons/si";
 
 const Projects = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
@@ -130,11 +131,6 @@ const Projects = () => {
               <h1 className="text-xl sm:text-2xl font-semibold text-cyan-300">
                 {project.title}
               </h1>
-              {project.type && (
-                <span className="bg-gray-700 text-white text-xs px-3 py-1 rounded-full inline-block mt-1">
-                  {project.type}
-                </span>
-              )}
             </div>
             {/* Description (multi-line for Pinnacle) */}
             {Array.isArray(project.description) ? (
@@ -169,7 +165,7 @@ const Projects = () => {
                 href={project.github}
                 className="text-white hover:text-cyan-300 text-2xl"
               >
-                <FaGithub />
+                {project.title === "FinFit Design" ? <SiFigma /> : <FaGithub />}
               </a>
             </div>
           </div>

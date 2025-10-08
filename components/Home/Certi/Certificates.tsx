@@ -9,7 +9,6 @@ type Certificate = {
   image: string;
   skills: string[];
   description: string;
-  link: string;
 };
 
 export default function Certificates() {
@@ -21,8 +20,7 @@ export default function Certificates() {
       date: "Sep 2025",
       image: "/images/image1.jpg",
       skills: ["Problem Solving", "Team Work"],
-      description: "Champion of the Final 24-Hour Hackathon of Corally 6.0, organized by the IEEE Computer Society Student Branch Chapter of IIT",
-      link: "https://www.hackerrank.com/certificates/java-basic"
+      description: "Champion of the Final 24-Hour Hackathon of Corally 6.0, organized by the IEEE Computer Society Student Branch Chapter of IIT"
     },
     {
       title: "Web Design for Beginners",
@@ -30,8 +28,7 @@ export default function Certificates() {
       date: "Dec 2023",
       image: "/images/webdesigner.jpeg",
       skills: ["HTML", "CSS", "Java Script"],
-      description: "Certified for web development.",
-      link: "https://www.hackerrank.com/certificates/java-basic"
+      description: "Certified for web development."
     },
     {
       title: "Python for Beginners",
@@ -39,8 +36,7 @@ export default function Certificates() {
       date: "Aug 2024",
       image: "/images/pythonbeginer.jpeg",
       skills: ["Python"],
-      description: "Certified for Python.",
-      link: "https://www.coursera.org/professional-certificates/google-it-automation"
+      description: "Certified for Python."
     },
     {
       title: "CSS (Basic)",
@@ -48,8 +44,7 @@ export default function Certificates() {
       date: "Apr 2024",
       image: "/images/css(basic).jpeg",
       skills: ["CSS"],
-      description: "Certified for CSS.",
-      link: "https://www.hackerrank.com/profile/Sulakshani2002"
+      description: "Certified for CSS."
     },
     {
       title: "Java (Basic)",
@@ -57,8 +52,7 @@ export default function Certificates() {
       date: "Sep 2024",
       image: "/images/Java(basic).png",
       skills: ["Java"],
-      description: "topics in Java language such as classes, data structures, inheritance, exception handling, etc.",
-      link: "https://www.hackerrank.com/profile/Sulakshani2002"
+      description: "topics in Java language such as classes, data structures, inheritance, exception handling, etc."
     },
     {
       title: "Problem Solving (Basic)",
@@ -66,8 +60,7 @@ export default function Certificates() {
       date: "July 2025",
       image: "/images/problemsolving.png",
       skills: ["Java"],
-      description: "topics of Data Structures (such as Arrays, Strings) and Algorithms (such as Sorting and Searching)",
-      link: "https://www.hackerrank.com/profile/Sulakshani2002"
+      description: "topics of Data Structures (such as Arrays, Strings) and Algorithms (such as Sorting and Searching)"
     },
     {
       title: "Python (Basic)",
@@ -75,8 +68,7 @@ export default function Certificates() {
       date: "July 2024",
       image: "/images/python.png",
       skills: ["Python"],
-      description: "Scalar Types, Operators and Control Flow, Strings, Collections and Iteration, Modularity, Objects and Types and Classes",
-      link: "https://www.hackerrank.com/profile/Sulakshani2002"
+      description: "Scalar Types, Operators and Control Flow, Strings, Collections and Iteration, Modularity, Objects and Types and Classes"
     },
     {
       title: "Problem Solving (Intermediate)",
@@ -84,17 +76,15 @@ export default function Certificates() {
       date: "July 2025",
       image: "/images/problemsolving2.png",
       skills: ["Java"],
-      description: "topics of Data Structures (such as HashMaps, Stacks and Queues) and Algorithms (such as Optimal Solutions)",
-      link: "https://www.hackerrank.com/profile/Sulakshani2002"
+      description: "topics of Data Structures (such as HashMaps, Stacks and Queues) and Algorithms (such as Optimal Solutions)"
     },
     {
       title: "Data Engineering on AWS",
       issuer: "AWS Training and Certification",
       date: "July 2025",
-      image: "/images/python.png",
+      image: "/images/aws.png",
       skills: ["Python"],
-      description: "Scalar Types, Operators and Control Flow, Strings, Collections and Iteration, Modularity, Objects and Types and Classes",
-      link: "https://www.hackerrank.com/profile/Sulakshani2002"
+      description: "Scalar Types, Operators and Control Flow, Strings, Collections and Iteration, Modularity, Objects and Types and Classes"
     },
   ];
 

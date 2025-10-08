@@ -48,6 +48,9 @@ const Home = () => {
       <div id="certificates">
         <Certificates />
       </div>
+      <div id="blogs">
+        <Blog />
+      </div>
       <div id="contact">
         <Contact />
       </div>

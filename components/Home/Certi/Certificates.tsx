@@ -19,7 +19,7 @@ export default function Certificates() {
       title: "CodeRally 6.0 - Champion",
       issuer: "IEEE Computer Society Student Branch Chapter of IIT",
       date: "Sep 2025",
-      image: "/images/webdesigner.jpeg",
+      image: "/images/image1.jpg",
       skills: ["Problem Solving", "Team Work"],
       description: "Champion of the Final 24-Hour Hackathon of Corally 6.0, organized by the IEEE Computer Society Student Branch Chapter of IIT",
       link: "https://www.hackerrank.com/certificates/java-basic"
@@ -158,14 +158,6 @@ export default function Certificates() {
                             </span>
                           ))}
                         </div>
-                        {cert.link && (
-                          <a
-                            href={cert.link}
-                            className="mt-3 inline-block bg-gradient-to-r from-cyan-400 to-blue-500 px-3 py-1 rounded-full text-white text-xs font-medium hover:opacity-90"
-                          >
-                            View More
-                          </a>
-                        )}
                       </div>
                     </div>
                   ))}

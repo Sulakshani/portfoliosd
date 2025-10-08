@@ -1,14 +1,37 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const ParticleBackground = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const [webGLSupported, setWebGLSupported] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // Guard clause to prevent execution during server-side rendering
     if (typeof window === 'undefined') {
+      return;
+    }
+
+    // Check WebGL support
+    const checkWebGLSupport = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!context) {
+          setWebGLSupported(false);
+          return false;
+        }
+        return true;
+      } catch (e) {
+        setWebGLSupported(false);
+        return false;
+      }
+    };
+
+    if (!checkWebGLSupport()) {
+      console.warn('WebGL not supported, falling back to CSS animation');
       return;
     }
 
@@ -17,55 +40,79 @@ const ParticleBackground = () => {
     const currentMount = mountRef.current;
 
     const initMatrix = () => {
-      // Scene
-      scene = new THREE.Scene();
+      try {
+        // Scene
+        scene = new THREE.Scene();
 
-      // Camera
-      if (!currentMount) return;
-      camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
-      camera.position.z = 300;
+        // Camera
+        if (!currentMount) return;
+        camera = new THREE.PerspectiveCamera(75, currentMount.clientWidth / currentMount.clientHeight, 0.1, 1000);
+        camera.position.z = 300;
 
-      // Renderer
-      renderer = new THREE.WebGLRenderer({ alpha: true });
-      renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-      currentMount.appendChild(renderer.domElement);
+        // Renderer with error handling
+        renderer = new THREE.WebGLRenderer({ 
+          alpha: true,
+          antialias: false, // Disable antialias to reduce GPU load
+          powerPreference: "low-power" // Use low power mode
+        });
+        
+        // Add context loss event listeners
+        renderer.domElement.addEventListener('webglcontextlost', (event) => {
+          event.preventDefault();
+          console.warn('WebGL context lost');
+          setHasError(true);
+        });
 
-      // Particles
-      const particleCount = 5000;
-      const positions = new Float32Array(particleCount * 3);
-      const colors = new Float32Array(particleCount * 3);
-      const color = new THREE.Color();
+        renderer.domElement.addEventListener('webglcontextrestored', () => {
+          console.log('WebGL context restored');
+          setHasError(false);
+          // Reinitialize if needed
+        });
 
-      for (let i = 0; i < particleCount; i++) {
-        const i3 = i * 3;
-        positions[i3] = (Math.random() - 0.5) * 1000;
-        positions[i3 + 1] = (Math.random() - 0.5) * 1000;
-        positions[i3 + 2] = (Math.random() - 0.5) * 1000;
+        renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
+        currentMount.appendChild(renderer.domElement);
 
-        color.setHSL(0.5 + Math.random() * 0.2, 0.7, 0.5); // Shades of blue and cyan
-        colors[i3] = color.r;
-        colors[i3 + 1] = color.g;
-        colors[i3 + 2] = color.b;
+        // Particles
+        const particleCount = 5000;
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+        const color = new THREE.Color();
+
+        for (let i = 0; i < particleCount; i++) {
+          const i3 = i * 3;
+          positions[i3] = (Math.random() - 0.5) * 1000;
+          positions[i3 + 1] = (Math.random() - 0.5) * 1000;
+          positions[i3 + 2] = (Math.random() - 0.5) * 1000;
+
+          color.setHSL(0.5 + Math.random() * 0.2, 0.7, 0.5); // Shades of blue and cyan
+          colors[i3] = color.r;
+          colors[i3 + 1] = color.g;
+          colors[i3 + 2] = color.b;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const material = new THREE.PointsMaterial({
+          size: 1.5,
+          vertexColors: true,
+          blending: THREE.AdditiveBlending,
+          transparent: true,
+          opacity: 0.7,
+        });
+
+        particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        // Event Listeners
+        window.addEventListener('resize', onWindowResize);
+        document.addEventListener('mousemove', onMouseMove);
+      } catch (error) {
+        console.error('Error initializing Three.js scene:', error);
+        setHasError(true);
+        setWebGLSupported(false);
       }
-
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-      const material = new THREE.PointsMaterial({
-        size: 1.5,
-        vertexColors: true,
-        blending: THREE.AdditiveBlending,
-        transparent: true,
-        opacity: 0.7,
-      });
-
-      particles = new THREE.Points(geometry, material);
-      scene.add(particles);
-
-      // Event Listeners
-      window.addEventListener('resize', onWindowResize);
-      document.addEventListener('mousemove', onMouseMove);
     };
 
     const onWindowResize = () => {
@@ -124,6 +171,6 @@ const ParticleBackground = () => {
       }}
     />
   );
-};
+}
 
 export default ParticleBackground;

@@ -125,16 +125,14 @@ const Hero = () => {
         
         {/* Right: Photo */}
         <div className="sm:w-1/2 flex justify-center items-center mt-8 sm:mt-0 relative group">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-800/20 rounded-full blur-2xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <Image
             src="/images/image.png"
             alt="My Photo"
             width={320}
-            height={350}
-            className="rounded-full border-8 border-[#0c0c48aa] shadow-lg object-cover relative z-10 transition-all duration-500 group-hover:border-cyan-500/50 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-cyan-500/30"
+            height={320}
+            className="rounded-xl border-4 border-[#0c0c48aa] shadow-lg object-cover relative z-10 transition-all duration-500 group-hover:border-cyan-500/50 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-cyan-500/30 group-hover:brightness-110"
             data-aos="fade-left"
           />
-          <div className="absolute inset-0 rounded-full border-8 border-cyan-500/0 group-hover:border-cyan-500/20 transition-all duration-500 animate-pulse-slow"></div>
         </div>
       </div>
       

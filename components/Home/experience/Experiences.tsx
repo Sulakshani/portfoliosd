@@ -27,12 +27,12 @@ const Experiences = () => {
       skills: [],
     },
     {
-      role: "Finance Committee Member - MoraXtreme 9.0 ",
+      role: "Committee Member-MoraXtreme9.0 ",
       location: "University of Moratuwa",
       type: "IEEE Student Branch Chapter",
       description:
         "Served as a member of Finance Committee Member for MoraXtreme 9.0, an event conducted by the IEEE WIE Student Branch Affinity Group at the University of Moratuwa.",
-      image: "/images/exp3.png",
+      image: "/images/moraxtreme.png",
       link: "#",
       skills: [],
     },

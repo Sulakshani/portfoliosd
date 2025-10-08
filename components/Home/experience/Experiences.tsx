@@ -128,14 +128,6 @@ const Experiences = () => {
                   </span>
                 ))}
               </div>
-              {exp.link && (
-                <a
-                  href={exp.link}
-                  className="mt-3 inline-block bg-gradient-to-r from-cyan-400 to-blue-500 px-3 py-1 rounded-full text-white text-xs font-medium hover:opacity-90"
-                >
-                  View More
-                </a>
-              )}
             </div>
           </div>
         ))}

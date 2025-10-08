@@ -14,7 +14,7 @@ const Projects = () => {
         "Built an AI-powered e-commerce platform offering personalized recommendations, smart search, order tracking, and an advanced admin dashboard.",
         
       ],
-      image: "/images/p1.jpg",
+      image: "/images/Pinnacle.png",
       tech: [
         "Next.js",
         "MongoDB",

@@ -17,6 +17,7 @@ const Blog = () => {
           <BlogCard
             image="/images/2405a65ff1b58436b15d81a30c23561b1bf383d3-10450x5350.webp"
             title="Static vs Server-Side Rendering in Next.js"
+            link="https://medium.com/@sulakshanidissanayake"
           />
         </div>
        

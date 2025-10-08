@@ -90,18 +90,49 @@ const Contact = () => {
           </div>
           {/* social icons */}
           <div className="flex items-center mt-8 space-x-3">
-           <a href="https://www.linkedin.com/in/sulakshani-dissanayake" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
-                     <FaLinkedin className="text-white w-6 h-6" />
-                   </a>
-                   <a href="https://github.com/Sulakshani" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
-                     <FaGithub className="text-white w-6 h-6" />
-                   </a>
-                   <a href="https://www.hackerrank.com/profile/Sulakshani2002" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
-                     <FaHackerrank className="text-white w-6 h-6 " />
-                   </a>
-                   <a href="https://medium.com/@sulakshanidissanayake" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-800 transition-all duration-300">
-                     <FaMedium className="text-white w-6 h-6" />
-                   </a>
+            {/* LinkedIn - Blue #0077B5 */}
+            <a 
+              href="https://www.linkedin.com/in/sulakshani-dissanayake" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-[#0077B5] transition-all duration-300 group relative overflow-hidden backdrop-blur-sm border border-white/10 hover:border-[#0077B5]/70 hover:shadow-lg hover:shadow-[#0077B5]/50 transform hover:scale-110 active:scale-95"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[#0077B5] to-[#005885] opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
+              <FaLinkedin className="text-white w-6 h-6 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+            </a>
+            
+            {/* GitHub - Dark Gray/Black #24292e */}
+            <a 
+              href="https://github.com/Sulakshani" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-[#24292e] transition-all duration-300 group relative overflow-hidden backdrop-blur-sm border border-white/10 hover:border-gray-400/70 hover:shadow-lg hover:shadow-gray-500/50 transform hover:scale-110 active:scale-95"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[#24292e] to-[#1a1e22] opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
+              <FaGithub className="text-white w-6 h-6 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+            </a>
+            
+            {/* HackerRank - Green #00EA64 */}
+            <a 
+              href="https://www.hackerrank.com/profile/Sulakshani2002" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-[#00EA64] transition-all duration-300 group relative overflow-hidden backdrop-blur-sm border border-white/10 hover:border-[#00EA64]/70 hover:shadow-lg hover:shadow-[#00EA64]/50 transform hover:scale-110 active:scale-95"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[#00EA64] to-[#00C851] opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
+              <FaHackerrank className="text-white w-6 h-6 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+            </a>
+            
+            {/* Medium - Black #000000 */}
+            <a 
+              href="https://medium.com/@sulakshanidissanayake" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer hover:bg-[#000000] transition-all duration-300 group relative overflow-hidden backdrop-blur-sm border border-white/10 hover:border-gray-300/70 hover:shadow-lg hover:shadow-gray-400/50 transform hover:scale-110 active:scale-95"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[#000000] to-[#1a1a1a] opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
+              <FaMedium className="text-white w-6 h-6 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+            </a>
           </div>
         </div>
         {/* form */}

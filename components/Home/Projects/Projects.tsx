@@ -60,6 +60,7 @@ const Projects = () => {
       tech: ["Next.js", "ASP.NET", "Tailwind CSS","GitHub","Firebase"],
       link: "https://github.com/Sulakshani/medlink-frontend",
       github: "https://github.com/Sulakshani/medlink-frontend",
+      inProgress: true,
     },
     {
       title: "SevaLanka project",
@@ -70,6 +71,7 @@ const Projects = () => {
       tech: ["Next.js", "ASP.NET", "Tailwind CSS","GitHub","Firebase"],
       link: "https://github.com/SeVaLanka",
       github: "https://github.com/SeVaLanka",
+      inProgress: true,
     },
     {
       title: "Baby Driver project",
@@ -123,6 +125,11 @@ const Projects = () => {
               {project.highlight && (
                 <div className="absolute top-4 left-4 bg-cyan-400 text-[#0f172a] text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse z-10">
                   Featured
+                </div>
+              )}
+              {project.inProgress && (
+                <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
+                  In Progress
                 </div>
               )}
             </div>

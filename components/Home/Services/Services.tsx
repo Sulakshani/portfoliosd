@@ -19,11 +19,7 @@ const Services = () => {
         {/* Single Wide Card Container */}
         <div className="w-[95%] sm:w-[90%] lg:w-[80%] xl:w-[70%] mx-auto">
           <div data-aos="fade-up" data-aos-delay="200">
-            <ServiceCard
-              icon="/images/s1.png"
-              name="Personal Details"
-              description="Comprehensive information about my background, skills, and contact details for potential collaboration opportunities."
-            />
+            <ServiceCard />
           </div>
         </div>
       </div>

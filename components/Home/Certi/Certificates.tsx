@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; 
 
 type Certificate = {
@@ -83,8 +83,8 @@ export default function Certificates() {
       issuer: "AWS Training and Certification",
       date: "July 2025",
       image: "/images/aws.png",
-      skills: ["Python"],
-      description: "Scalar Types, Operators and Control Flow, Strings, Collections and Iteration, Modularity, Objects and Types and Classes"
+      skills: ["AWS"],
+      description: "In a Data Engineering on AWS Foundation Course, you learn how to collect, store, process, and analyze data using AWS tools like S3, Glue, Redshift, and QuickSight to build basic cloud data pipelines."
     },
   ];
 
@@ -122,7 +122,7 @@ export default function Certificates() {
                       key={index}
                       className="bg-[#0f172a] min-w-[350px] max-w-[350px] rounded-xl p-4 shadow-lg border border-white/10 hover:shadow-cyan-500/20 transition flex-shrink-0"
                     >
-                      <img
+                      <Image
                         src={cert.image}
                         alt={cert.title}
                         width={350}

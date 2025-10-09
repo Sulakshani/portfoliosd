@@ -1,9 +1,9 @@
 "use client";
 import { NavLinks } from "@/constant/constant";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { BiDownload } from "react-icons/bi";
-import { FaCode } from "react-icons/fa";
 import { HiBars3BottomRight } from "react-icons/hi2";
 
 type Props = {
@@ -34,9 +34,11 @@ const Nav = ({ openNav }: Props) => {
         {/* LOGO */}
         <div className="flex items-center space-x-2">
             <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
-            <img
+            <Image
               src="/images/slogo.png"
               alt="Logo"
+              width={64}
+              height={64}
               className="w-16 h-16 object-cover"
             />
             </div>

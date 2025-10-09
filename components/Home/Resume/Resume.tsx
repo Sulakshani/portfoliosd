@@ -1,6 +1,5 @@
 import React from "react";
 import ResumeCard from "./ResumeCard";
-import { FaGraduationCap, FaUniversity, FaCertificate, FaSchool } from "react-icons/fa";
 
 const Resume = () => {
   const educationData = [

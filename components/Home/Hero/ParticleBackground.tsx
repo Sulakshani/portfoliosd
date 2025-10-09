@@ -1,12 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 const ParticleBackground = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [webGLSupported, setWebGLSupported] = useState(true);
-  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // Guard clause to prevent execution during server-side rendering
@@ -20,12 +18,10 @@ const ParticleBackground = () => {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
         if (!context) {
-          setWebGLSupported(false);
           return false;
         }
         return true;
-      } catch (e) {
-        setWebGLSupported(false);
+      } catch {
         return false;
       }
     };
@@ -60,12 +56,10 @@ const ParticleBackground = () => {
         renderer.domElement.addEventListener('webglcontextlost', (event) => {
           event.preventDefault();
           console.warn('WebGL context lost');
-          setHasError(true);
         });
 
         renderer.domElement.addEventListener('webglcontextrestored', () => {
           console.log('WebGL context restored');
-          setHasError(false);
           // Reinitialize if needed
         });
 
@@ -110,8 +104,6 @@ const ParticleBackground = () => {
         document.addEventListener('mousemove', onMouseMove);
       } catch (error) {
         console.error('Error initializing Three.js scene:', error);
-        setHasError(true);
-        setWebGLSupported(false);
       }
     };
 

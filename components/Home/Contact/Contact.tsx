@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
-import { FaFacebookF, FaGithub, FaHackerrank, FaInstagram, FaLinkedin, FaMedium, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaHackerrank, FaLinkedin, FaMedium } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -67,7 +67,7 @@ const Contact = () => {
             Have a project in mind or want to collaborate? 
           </h1>
           <p className="text-gray-400 mt-6 text-base sm:text-lg">
-            I'd love to hear from you. Let's create something amazing together.
+            I&apos;d love to hear from you. Let&apos;s create something amazing together.
           </p>
           {/* info */}
           <div className="mt-7">

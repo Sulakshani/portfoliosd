@@ -1,9 +1,5 @@
 import React from "react";
 
-type Props = {
-  // Props currently not used in this component
-};
-
 const ServiceCard = () => {
   return (
     <div className="group relative overflow-hidden bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-lg border border-white/10 transition-all duration-500 p-8 sm:p-12 rounded-2xl hover:bg-gradient-to-br hover:from-blue-800/50 hover:to-purple-800/50 hover:border-cyan-400/30 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/20 transform-gpu max-w-4xl mx-auto">

@@ -60,7 +60,7 @@ const Hero = () => {
         {/* Left: Text */}
         <div className="flex flex-col items-center justify-center h-full sm:h-auto sm:min-h-[500px]">
           <h2 className="text-sm sm:text-6xl whitespace-nowrap text-center animate-fade-in">
-            Hello, I'm{" "}
+            Hello, I&apos;m{" "}
             <span className="bg-gradient-to-r from-cyan-200 via-cyan-400 to-blue-400 bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300">
               Sulakshani
             </span>
